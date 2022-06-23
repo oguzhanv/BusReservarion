@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace BusReservation.WebUI.Controllers
@@ -47,37 +48,58 @@ namespace BusReservation.WebUI.Controllers
         }
         public IActionResult GetTicketsFromRoute(int id, string cityFirst, string cityLast)
         {
-            ViewBag.From = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cityFirst);
-            ViewBag.ToWhere = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cityLast);
-            int x = _routeService.GetRouteFromRouteId(id);
-            ViewBag.x = x;
-            return View(_ticketService.GetTicketsWithRoute(id));
+            var ticket = new TicketWithList()
+            {
+                TicketFromWhere = cityFirst,
+                TicketToWhere = cityLast,
+                RouteId = _routeService.GetRouteFromRouteId(id),
+                Ticket = _ticketService.GetTicketsWithRoute(id)
+            };
+            return View(ticket);
         }
-        public IActionResult GetPassangerInfo(string FromWhere, string ToWhere,int routeId, int seatNo)
+        public IActionResult GetPassangerInfo(TicketWithList ticket)
         {
             Random rnd = new Random();
             int pnr = rnd.Next(100000000, 900000000);
+            string routeHour = _ticketService.GetHour(ticket.RouteId);
+            string routeDate = _ticketService.GetDate(ticket.RouteId);
+            double routePrice = _ticketService.GetPrice(ticket.RouteId);
             
-            string routeHour = _ticketService.GetHour(routeId);
-            string routeDate = _ticketService.GetDate(routeId);
-            double routePrice = _ticketService.GetPrice(routeId);
-            
-            var ticket = new Ticket()
+            var newTicket = new Ticket()
             {
-                RouteId = routeId,
+                RouteId = ticket.RouteId,
                 TicketDate = routeDate,
                 TicketPrice = routePrice,
                 TicketClock = routeHour,
-                TicketFromWhere = FromWhere,
-                TicketSeatNo = seatNo,
+                TicketFromWhere = ticket.TicketFromWhere,
+                TicketSeatNo = ticket.TicketSeatNo,
                 TicketPnrNo = pnr.ToString(),
-                TicketToWhere = ToWhere
+                TicketToWhere = ticket.TicketToWhere
             };
-            return View(ticket);
+            return View(newTicket);
         }
         [HttpPost]
         public async Task<IActionResult> CreateTicket(Ticket ticket)
         {
+            var tickets = _ticketService.GetTicketsWithRoute(ticket.RouteId);
+            if (ticket.TicketSeatNo % 3 == 2)
+            {
+                var ticketRight = tickets.Find(i => i.TicketSeatNo == ticket.TicketSeatNo + 1);
+                if (ticketRight != null && ticketRight.TicketGender != ticket.TicketGender)
+                {
+                    ShowMessage("Yanyana olan koltuklar da aynı cinsiyet seçilmelidir", "danger");
+                    return RedirectToAction("GetPassangerInfo",ticket);
+                }
+            }
+            else if(ticket.TicketSeatNo % 3 == 0)
+            {
+                var ticketLeft = tickets.Find(i => i.TicketSeatNo == ticket.TicketSeatNo - 1);
+                if (ticketLeft != null && ticketLeft.TicketGender != ticket.TicketGender)
+                {
+                    ShowMessage("Yanyana olan koltuklar da aynı cinsiyet seçilmelidir", "danger");
+                    return RedirectToAction("GetPassangerInfo", ticket);
+                }
+            }
             string htmlMes = $"<h4>Sayın {ticket.TicketName} Rezervasyon Bilgileriniz Aşağıdadır.</h4>" +
                 $"<h6>PNR No: = {ticket.TicketPnrNo}</h6>" +
                 $"<h6>İsim = {ticket.TicketName}</h6>" +

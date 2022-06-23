@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SL/qncWwc9mLTfqg7qBx9cJr70guZ7+l0uKXK4/2Q//g2CRT2MM1BYNrsr4c7KJOVltOcZiOI2m2nslOgWNATA==",
+  "dgSpecHash": "3hIPo1ZU446HyGBE2vFxlIrDCEms3GR4MsXXXREmeIvK0+l8/paKVZuwIYvEIZFSmc6Yqhph3VH5Ok9rF9r6JQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.WebUI\\BusReservation.WebUI.csproj",
+  "projectFilePath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.WebUI\\BusReservation.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oguzh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\oguzh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",

@@ -1,7 +1,7 @@
-﻿@model List<Ticket>
+﻿@model TicketWithList
 
 
-<h4 class="text-center mb-4">@ViewBag.From - @ViewBag.ToWhere</h4>
+<h4 class="text-center mb-4">@Model.TicketFromWhere - @Model.TicketToWhere</h4>
 
 
 <div class="seat-row">
@@ -32,42 +32,67 @@
 <center>
     <form type="submit" asp-controller="BusReservation" asp-action="GetPassangerInfo" class="col-md-4">
         <div class="seat-row parent">
-            @for (int i = 1; i < 40; i++)
+            @*@for (int i = 1; i < 40; i++)
             {
-                @foreach (var item in Model)
+            @foreach (var item in Model.Ticket)
+            {
+            if (i == item.TicketSeatNo)
+            {
+            if (i == item.TicketSeatNo)
+            {
+            if (item.TicketGender == "Erkek")
+            {
+            <div class="seat selected-man child">@i</div>
+            }
+            else if (item.TicketGender == "Kadın")
+            {
+            <div class="seat selected-woman child">@i</div>
+            }
+            i++;
+            }
+            }
+            }
+            @*<button type="submit" class="seat child" value="@i" name="seatNo" asp>@i</button>
+            <input type="submit" class="seat child" value="@i" asp-for="TicketSeatNo"/>
+            }*@
+            @{
+                @for (int i = 1; i < 40; i++)
                 {
-
-                    List<int> SelectedSeats = new List<int>();
-                    if (i == item.TicketSeatNo)
+                    @foreach (var item in Model.Ticket)
                     {
-                        SelectedSeats.Add(i);
+                        List<int> SelectedSeats = new List<int>();
 
-                        foreach (var seat in SelectedSeats)
+                        if (i == item.TicketSeatNo)
                         {
-                            for (int j = 1; j <= i; j++)
+                            SelectedSeats.Add(i);
+
+                            foreach (var seat in SelectedSeats)
                             {
-                                if (j == seat)
+                                for (int j = 1; j <= i; j++)
                                 {
-                                    @if (item.TicketGender == "Erkek")
+                                    if (j == seat)
                                     {
-                                        <div class="seat selected-man child">@j</div>
+                                        @if (item.TicketGender == "Erkek")
+                                        {
+                                            <input class="seat selected-man child" value="@j"/>
+                                        }
+                                        else if (item.TicketGender == "Kadın")
+                                        {
+                                            <input class="seat selected-woman child" value="@j"/>
+                                        }
+                                        i++;
                                     }
-                                    else if (item.TicketGender == "Kadın")
-                                    {
-                                        <div class="seat selected-woman child">@j</div>
-                                    }
-                                    i++;
                                 }
                             }
                         }
                     }
+                    <input type="submit" class="seat child" value="@i" asp-for="TicketSeatNo" />
                 }
-                <button type="submit" class="seat child" value="@i" name="seatNo">@i</button>
             }
         </div>
-        <input type="hidden" name="FromWhere" value="@ViewBag.From" />
-        <input type="hidden" name="ToWhere" value="@ViewBag.ToWhere" />
-        <input type="hidden" name="routeId" value="@ViewBag.x" />
+        <input type="hidden" asp-for="TicketFromWhere" />
+        <input type="hidden" asp-for="TicketToWhere" />
+        <input type="hidden" asp-for="RouteId" />
     </form>
 </center>
 

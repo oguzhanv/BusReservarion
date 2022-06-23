@@ -15,7 +15,5 @@ namespace BusReservation.Data.Abstract
         double GetPrice(int id);
         string GetHour(int id);
         Ticket GetSearchedTicket(string PnrNo, string Email);
-
-
     }
 }

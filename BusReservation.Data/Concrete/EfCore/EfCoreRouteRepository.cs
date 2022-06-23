@@ -42,18 +42,6 @@ namespace BusReservation.Data.Concrete.EfCore
 
                 return start;
 
-                //if (start != null && finish != null && cityStart!=cityLast)
-                //{
-                    
-                //    start.AddRange(finish);
-                //    return start;
-                //}
-                //else
-                //{
-                //    return null;
-                //}
-
-               
                 
             }
         }

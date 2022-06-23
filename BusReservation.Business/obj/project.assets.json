@@ -978,11 +978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Business\\BusReservation.Business.csproj",
+      "projectUniqueName": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Business\\BusReservation.Business.csproj",
       "projectName": "BusReservation.Business",
-      "projectPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Business\\BusReservation.Business.csproj",
+      "projectPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Business\\BusReservation.Business.csproj",
       "packagesPath": "C:\\Users\\oguzh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Business\\obj\\",
+      "outputPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oguzh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -999,11 +999,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Data\\BusReservation.Data.csproj": {
-              "projectPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Data\\BusReservation.Data.csproj"
+            "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Data\\BusReservation.Data.csproj": {
+              "projectPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Data\\BusReservation.Data.csproj"
             },
-            "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Entity\\BusReservation.Entity.csproj": {
-              "projectPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Entity\\BusReservation.Entity.csproj"
+            "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Entity\\BusReservation.Entity.csproj": {
+              "projectPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Entity\\BusReservation.Entity.csproj"
             }
           }
         }
@@ -1032,7 +1032,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Entity\\BusReservation.Entity.csproj",
+      "projectUniqueName": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Entity\\BusReservation.Entity.csproj",
       "projectName": "BusReservation.Entity",
-      "projectPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Entity\\BusReservation.Entity.csproj",
+      "projectPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Entity\\BusReservation.Entity.csproj",
       "packagesPath": "C:\\Users\\oguzh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oguzh\\Desktop\\BusReservation_oguzhan_varli\\BusReservation.Entity\\obj\\",
+      "outputPath": "C:\\Users\\oguzh\\Desktop\\Bus-Reservation\\BusReservation.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oguzh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

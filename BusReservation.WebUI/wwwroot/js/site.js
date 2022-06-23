@@ -1,4 +1,5 @@
-﻿const seats = document.querySelector(".select-seat")
+﻿
+const seats = document.querySelector(".select-seat")
 
 $(document).ready(function () {
     $(".trigger").addClass("drawn")
